@@ -50,6 +50,8 @@
             </li>
           </ul> -->
           <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item"><a href="../../../shelter/public/walk" class="nav-link"><i class="fa fa-paw"></i> Walk a dog</a></li>
+
                 <li class="nav-item"><a href="../../../shelter/public/schedule" class="nav-link"><i class="fa fa-calendar"></i> My schedule</a></li>
                 <li class="dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,20 +77,50 @@
     <div class="w3-content" style="max-width:1100px">
       <hr>
       <p>" "</p>
+      <?php if(isset($dog["schedule"])): ?>
+        <p>"No schedule yet for this dog."</p>
+        <p>Ok lets schedule this for you, you will be walking <strong><?= $dog["dog_id"] ?></strong></p>
+        <?php $dogg=$dog["dog_id"] ?>
+      <?php else: ?>
 
-      <?php foreach ($dogs as $dog): ?>
-        <div class="responsive">
-          <div class="gallery">
-            <a href="<?= 'walk' . "?id=" . $dog["id"] ?>">
-              <img src="<?= $dog["picture"] ?>">
-            </a>
-            <div class="desc">
-              <?= $dog["name"] ?>: <?= $dog["sex"] ?>, <?= $dog["age"] ?>
-            </div>
-          </div>
+        <p>"Thats schedule for this dog:"</p>
+        <div class="form">
+          <table class="display-schedule">
+            <tr>
+              <th>From</th>
+              <th>To</th>
+            </tr>
+            <?php foreach ($dog as $data): ?>
+            <tr>
+              <td><?= $data["from_when"] ?></td>
+              <td><?= $data["to_when"] ?></td>
+            </tr>
+            <?php endforeach; ?>
+          </table>
         </div>
-      <?php endforeach; ?>
+        <p>Ok lets schedule this for you, you will be walking <strong><?= $data["dog_id"] ?></strong></p>
+        <?php $dogg=$data["dog_id"] ?>
+      <?php endif; ?>
 
+      <form class="form" action = "<?= "walk/setWalk" ?>" method = "post" content="">
+        <div class="schedule-dog">
+          <label for="date">Choose your date of walking:</label>
+          <input type="date" id="party" name="date" min="<?= date("Y-m-d") ?>" max="2018-08-30">
+          <label for="from-time">From time (9:00 - 18:00): </label>
+          <input class="appt-time" type="time" name="from-time"
+                 min="09:00" max="18:00">
+
+          <label for="to-time">To time (10:00 - 19:00): </label>
+          <input class="appt-time" type="time" name="to-time"
+                 min="10:00" max="19:00">
+          <input type="text" hidden value="<?= $dogg ?>" name="dogg">
+          <button type="submit">Set schedule</button>
+        </div>
+        <?php if(isset($_GET["errors"])): ?>
+          <span style="color: red;">all fields should be correctly filled</span>
+        <?php endif; ?>
+
+      </form>
       <div class="clearfix"></div>
   </div>
 

@@ -30,7 +30,7 @@
       
   </head>
   
-  <body>
+  <body style="background: #ccc;">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="my-nav">
@@ -50,6 +50,8 @@
             </li>
           </ul> -->
           <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item"><a href="../../../shelter/public/walk" class="nav-link"><i class="fa fa-paw"></i> Walk a dog</a></li>
+
                 <li class="nav-item"><a href="../../../shelter/public/schedule" class="nav-link"><i class="fa fa-calendar"></i> My schedule</a></li>
                 <li class="dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,23 +76,20 @@
 
     <div class="w3-content" style="max-width:1100px">
       <hr>
-      <p>" "</p>
-
-      <?php foreach ($dogs as $dog): ?>
-        <div class="responsive">
-          <div class="gallery">
-            <a href="<?= 'walk' . "?id=" . $dog["id"] ?>">
-              <img src="<?= $dog["picture"] ?>">
-            </a>
-            <div class="desc">
-              <?= $dog["name"] ?>: <?= $dog["sex"] ?>, <?= $dog["age"] ?>
-            </div>
-          </div>
-        </div>
-      <?php endforeach; ?>
-
+      <p>doggeos pictures comming soon</p>
+      
+      <div class="form">
+      <div class="thumbnail" id="dogs"><img src="<?= $dog["picture"] ?>"/></div>
+        <p>
+          Name: <b><?= $dog["name"] ?></b><br>
+          Sex: <b><?= $dog["sex"] ?> </b><br>
+          Age: <b><?= $dog["age"] ?></b><br>
+          Description: <b><?= $dog["description"] ?></b>
+        </p>
+        <a href="<?= 'walk' . "?letswalk=" . $dog["id"] ?>" id="walk-me-a" class="mya">Walk me</a>
+      </div>
       <div class="clearfix"></div>
-  </div>
+    </div>
 
     <!-- Footer -->
     <footer class="w3-center navbar-dark bg-dark w3-padding-32">

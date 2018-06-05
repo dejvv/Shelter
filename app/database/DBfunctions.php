@@ -31,7 +31,7 @@ class DBfunctions {
         $statement->execute();
     }
 
-    // insert user to database
+    // insert user in to database
     public static function insert($name, $surname, $email, $password) {
         $db = DBconnect::getInstance();
 
