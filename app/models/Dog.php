@@ -68,7 +68,9 @@ class Dog {
         $statement1 = $db->prepare("SELECT `id` FROM shelter.user WHERE `email` = :eposta");
         $statement1->bindParam(":eposta", $email);
         $statement1->execute();
-        $result1 = $statement1->fetch(PDO::FETCH_NUM);
+        $result1 = $statement1->fetchAll();
+
+        $result1 = intval($result1[0]["id"]);
 
         // var_dump($result1);
         // exit;
@@ -81,7 +83,7 @@ class Dog {
 
             $statement = $db->prepare("INSERT INTO shelter.schedule (`user_id`, `dog_id`, `from_when`, `to_when`)
             VALUES (:uid, :did, :fw, :tw);");
-            $statement->bindParam(":uid", intval($userid));
+            $statement->bindParam(":uid", $userid);
             $statement->bindParam(":did", $id_dog);
             $statement->bindParam(":fw", $from_date);
             $statement->bindParam(":tw", $to_date);

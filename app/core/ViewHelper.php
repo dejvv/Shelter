@@ -15,7 +15,10 @@ class ViewHelper {
 
     // Redirects to the given URL
     public static function redirect($url) {
-        header("Location: " . $url, false);
+        header("Location:" . $url, false);
+        // die(var_dump("redirect"));
+        exit;
+
     }
 
     // Displays a simple 404 message

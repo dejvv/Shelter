@@ -13,6 +13,7 @@ $( document ).ready(function() {
   //     $("#form-lg").show(700);
   // });
 
+    // scrolling
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
@@ -23,4 +24,30 @@ $( document ).ready(function() {
       }
       prevScrollpos = currentScrollPos;
     }
+
+    // delete schedule with ajax
+    // Delete 
+   $('.fa-times').click(function(){
+    var el = this;
+    var id = this.id;
+    console.log("[delete schedule]", id);
+
+   
+    // AJAX Request
+    $.ajax({
+     url: 'schedule',
+     type: 'POST',
+     data: { id_schedule:id },
+     success: function(response){
+
+      // Removing row from HTML Table
+      $(el).closest('tr').css('background','tomato');
+      $(el).closest('tr').fadeOut(800, function(){ 
+       $(this).remove();
+      });
+
+     }
+    });
+
+   });
 });

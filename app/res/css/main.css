@@ -230,6 +230,16 @@ div.desc {
   padding: 0.4em;
 }
 
+.fa-times{
+  color: rgba(255,0,0,0.8)
+}
+
+.fa-times:hover{
+  transition: all 0.05s;
+  color: rgba(200,0,0,1);
+  font-size: 1.2em;
+}
+
 
 
 

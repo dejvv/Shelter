@@ -72,9 +72,35 @@
       </div>
     </nav>
 
-    <div class="margin-from-top">
-      <p>schedule comming soon</p>
-    </div>
+    <div class="w3-content" style="max-width:1100px">
+      <hr>
+      <p>" "</p>
+      <?php if(isset($my_schedules["schedule"])): ?>
+        <p>"No schedule yet for you."</p>
+      <?php else: ?>
+        <p>"That are schedules that you made:"</p>
+        <div class="form" style="max-width: 600px;">
+          <table class="display-schedule">
+            <tr>
+              <th>Dog</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Delete</th>
+            </tr>
+            <?php foreach ($my_schedules as $row): ?>
+            <tr">
+              <td><?= $row["dog_id"] ?></td>
+              <td><?= $row["from_when"] ?></td>
+              <td><?= $row["to_when"] ?></td>
+              <td><i id="<?= $row["id"] ?>" class="fa fa-times"></i></td>
+            </tr>
+            <?php endforeach; ?>
+          </table>
+        </div>
+      <?php endif; ?>
+
+      <div class="clearfix"></div>
+  </div>
 
     <!-- Footer -->
     <footer class="w3-center navbar-dark bg-dark w3-padding-32">

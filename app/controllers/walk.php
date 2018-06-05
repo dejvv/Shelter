@@ -23,27 +23,41 @@ class Walk extends Controller
     // }
 
     public static function index() {
+
         if (isset($_GET["id"])) {
+        	// die(var_dump("id"));
+
         	// echo "<pre>";
         	// var_dump($_GET["id"]);
         	// exit;
             ViewHelper::render("../app/view/walk/dog.php", ["dog" => Dog::get($_GET["id"])]);
         } else if (isset($_GET["letswalk"])) {
+        	// die(var_dump("letswalk"));
+
         	// echo "<pre>";
         	// var_dump($_GET["letswalk"]);
         	// exit;
             ViewHelper::render("../app/view/walk/walk-dog.php", ["dog" => Dog::getSchedule($_GET["letswalk"])]);
         } else if (isset($_GET["errors"])) {
+        	// die(var_dump("errors"));
+
+
             ViewHelper::render("../app/view/walk/walk-dog.php", ["dog" => Dog::getSchedule($_GET["errors"])]);
         } else {
+        	// die(var_dump("nothing"));
+
             ViewHelper::render("../app/view/walk/index.php", ["dogs" => Dog::getAll()]);
         }
     }
 
     public static function setWalk() {
+    	// die(var_dump("bananan"));
+
     	$dataSet = isset($_POST["from-time"]) && !empty($_POST["from-time"]) &&
             isset($_POST["date"]) && !empty($_POST["date"]) &&
             isset($_POST["to-time"]) && !empty($_POST["to-time"]);
+
+
 
         if(!$dataSet){
         	ViewHelper::redirect('../walk?errors=' . $_POST["dogg"]);

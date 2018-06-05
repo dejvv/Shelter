@@ -6,13 +6,19 @@ if($status == PHP_SESSION_NONE){
     session_start();
 }
 
+require_once("../app/models/User.php");
+require_once("../app/core/ViewHelper.php");
+
 class Schedule extends Controller
 {
-    public function index($name = ''){
-        $user = $this->model('User');
-        $user->name = $name;
-        
-        $this->view('schedule/index', ['name' => $user->name]);
+    public static function index () {
+        if (isset($_POST["id_schedule"])) {
+            // ViewHelper::render("../app/view/schedule/index.php", ["my_schedules" => User::deleteSchedule($_POST["id_schedule"], $_SESSION["user"])]);
+            ["my_schedules" => User::deleteSchedule($_POST["id_schedule"], $_SESSION["user"])];
+        } else { 
+            ViewHelper::render("../app/view/schedule/index.php", ["my_schedules" => User::getSchedules($_SESSION["user"])]);
+        }
     }
+
 
 }
