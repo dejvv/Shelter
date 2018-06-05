@@ -1,4 +1,7 @@
 $( document ).ready(function() {
+  if(document.getElementById("nosch")){
+    $("#footer").addClass("fixed-bottom");
+  }
   // $("#form-lg-toggle").click(function() {
   //   //$("#forma").animate({ height: "toggle", opacity: "toggle" }, "slow");
   //     console.log("clicked hide login, show register");

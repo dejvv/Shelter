@@ -25,20 +25,6 @@
   </head>
   
   <body>
-
-    <!-- Navbar (sit on top) -->
-    <!-- <div class="w3-top">
-      <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-        <a href="#home" class="w3-bar-item w3-button">Gourmet au Catering</a> -->
-        <!-- Right-sided navbar links. Hide them on small screens -->
-        <!-- <div class="w3-right w3-hide-small">
-          <a href="#about" class="w3-bar-item w3-button">About</a>
-          <a href="#menu" class="w3-bar-item w3-button">Menu</a>
-          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-        </div>
-      </div>
-    </div> -->
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="my-nav">
       <div class="container">
@@ -99,8 +85,7 @@
           <h1 class="w3-center">What is "walk a dog"?</h1><br>
           <p class="w3-large">It is an application that let's you schedule a dog walking session with <span class="w3-tag w3-light-grey">shelters</span> in your local area.</p>
           <p class="w3-large w3-text-grey">
-          Choose a dog, take him to a walk or just play with him.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          Choose a dog, take him to a walk or just play with him. Do it hundred of thousands times. Make dog happy.Choose a dog, take him to a walk or just play with him. Do it hundred of thousands times. Make dog happy. Choose a dog, take him to a walk or just play with him. Do it hundred of thousands times. Make dog happy. Choose a dog, take him to a walk or just play with him. Do it hundred of thousands times. Make dog happy. Choose a dog, take him to a walk or just play with him. Do it hundred of thousands times. Make dog happy.</p>
         </div>
       </div>
       

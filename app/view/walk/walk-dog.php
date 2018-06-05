@@ -74,18 +74,20 @@
       </div>
     </nav>
 
-    <div class="w3-content" style="max-width:1100px">
-      <hr>
-      <p>" "</p>
+    <div class="w3-content" style="max-width:1100px; margin-top: 5em;">
       <?php if(isset($dog["schedule"])): ?>
-        <p>"No schedule yet for this dog."</p>
-        <p>Ok lets schedule this for you, you will be walking <strong><?= $dog["dog_id"] ?></strong></p>
+        <h2 id="nosch" class="heading-h3">
+          There is no walk schedule for this dog, yet.
+        </h2>
+        <p class="heading-h3">Ok  you will be walking 
+          <a href="<?= './walk' . "?id=" . $dog["dog_id"] ?>"><strong><?= $dog["name"] ?></strong></a>, great!</p>
         <?php $dogg=$dog["dog_id"] ?>
       <?php else: ?>
-
-        <p>"Thats schedule for this dog:"</p>
-        <div class="form">
-          <table class="display-schedule">
+        <h2 class="heading-h3">
+          This is walk schedule for <a href="<?= './walk' . "?id=" . $dog[0]["dog_id"] ?>"><strong><?= $dog[0]["name"] ?></strong></a>
+        </h2>
+        <div class="form" style="max-width: 50em; margin-top: 0; margin-bottom: 1em;">
+          <table class="table table-bordered table-hover" id = "scheduled_dogs">
             <tr>
               <th>From</th>
               <th>To</th>
@@ -98,11 +100,9 @@
             <?php endforeach; ?>
           </table>
         </div>
-        <p>Ok lets schedule this for you, you will be walking <strong><?= $data["dog_id"] ?></strong></p>
         <?php $dogg=$data["dog_id"] ?>
       <?php endif; ?>
-
-      <form class="form" action = "<?= "walk/setWalk" ?>" method = "post" content="">
+      <form style="margin-top: 0;" id="schedule-form" class="form" action = "<?= "walk/setWalk" ?>" method = "post" content="">
         <div class="schedule-dog">
           <label for="date">Choose your date of walking:</label>
           <input type="date" id="party" name="date" min="<?= date("Y-m-d") ?>" max="2018-08-30">
@@ -125,7 +125,7 @@
   </div>
 
     <!-- Footer -->
-    <footer class="w3-center navbar-dark bg-dark w3-padding-32">
+    <footer class="w3-center navbar-dark bg-dark w3-padding-32" id="footer">
        <p>All rights reserved.</p>
     </footer>
 

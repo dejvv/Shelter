@@ -218,6 +218,7 @@ div.desc {
 
 
 .display-schedule{
+  margin: 0 auto;
   border-collapse: collapse;
   border: 1px solid black;
 }
@@ -240,6 +241,14 @@ div.desc {
   font-size: 1.2em;
 }
 
+.heading-h3 {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 1em;
+}
 
-
-
+.fixed-bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}

@@ -41,8 +41,9 @@ class Dog {
             // echo "<pre>";
             // var_dump($id);
             // exit;
-         $statement = $db->prepare("SELECT *
-            FROM shelter.schedule WHERE dog_id= :id");
+
+        $sql = "SELECT shelter.schedule.*, dog.name FROM `schedule` JOIN `dog` ON schedule.dog_id=dog.id WHERE `dog_id`= :id;";
+        $statement = $db->prepare($sql);
         $statement->bindParam(":id", $id, PDO::PARAM_INT);
         $statement->execute();
 
@@ -54,8 +55,15 @@ class Dog {
             // exit;
             return $dog;
         } else {
+            $sql = "SELECT shelter.dog.name FROM `dog` WHERE `id`= :id;";
+            $statement = $db->prepare($sql);
+            $statement->bindParam(":id", $id, PDO::PARAM_INT);
+            $statement->execute();
+
+            $dog_name = $statement->fetch();
+            
             // indicate user there is no schedule for this dog yet
-            $a = array('dog_id' => $id, 'schedule' => 'none');
+            $a = array('dog_id' => $id, 'schedule' => 'none', 'name' => $dog_name["name"]);
             return $a;
         }
     }

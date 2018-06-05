@@ -60,7 +60,7 @@ class Walk extends Controller
 
 
         if(!$dataSet){
-        	ViewHelper::redirect('../walk?errors=' . $_POST["dogg"]);
+        	ViewHelper::redirect('../walk?errors=' . $_POST["dogg"] . "#schedule-form");
         } 
 
         // check if date is set before today
@@ -68,7 +68,7 @@ class Walk extends Controller
 		$date_timestamp = strtotime($_POST["date"]);
 
 		if ($date_timestamp < $today_start) {
-		    ViewHelper::redirect('../walk?errors=' . $_POST["dogg"]);
+		    ViewHelper::redirect('../walk?errors=' . $_POST["dogg"] . "#schedule-form");
 		}
 
 

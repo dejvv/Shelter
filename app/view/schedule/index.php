@@ -72,15 +72,18 @@
       </div>
     </nav>
 
-    <div class="w3-content" style="max-width:1100px">
-      <hr>
-      <p>" "</p>
+    <div class="w3-content" style="max-width:1100px; margin-top: 5em;">
       <?php if(isset($my_schedules["schedule"])): ?>
-        <p>"No schedule yet for you."</p>
+        <!-- <p id="nosch">"No schedule yet for you."</p> -->
+        <h2 class="heading-h3">
+          No walk schedule for you, yet.
+        </h2>
       <?php else: ?>
-        <p>"That are schedules that you made:"</p>
-        <div class="form" style="max-width: 600px;">
-          <table class="display-schedule">
+        <h2 class="heading-h3">
+          Your walk schedule
+        </h2>
+        <div class="form" style="max-width: 50em; margin-top: 0">
+          <table class="table table-bordered table-hover" id = "scheduled_dogs">
             <tr>
               <th>Dog</th>
               <th>From</th>
@@ -89,7 +92,7 @@
             </tr>
             <?php foreach ($my_schedules as $row): ?>
             <tr">
-              <td><?= $row["dog_id"] ?></td>
+              <td><a href="<?= './walk' . "?id=" . $row["dog_id"] ?>"><?= $row["name"] ?></a></td>
               <td><?= $row["from_when"] ?></td>
               <td><?= $row["to_when"] ?></td>
               <td><i id="<?= $row["id"] ?>" class="fa fa-times"></i></td>
@@ -103,7 +106,7 @@
   </div>
 
     <!-- Footer -->
-    <footer class="w3-center navbar-dark bg-dark w3-padding-32">
+    <footer class="w3-center navbar-dark bg-dark w3-padding-32 fixed-bottom">
        <p>All rights reserved.</p>
     </footer>
 

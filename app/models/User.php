@@ -19,14 +19,18 @@ class User
 
         $id = intval($id[0]["id"]);
 
+        // die(var_dump($id));
 
-        // $sql = "SELECT schedule.id, schedule.user_id, schedule.dog_id, schedule.from_when, schedule.to_when, dog.name FROM `schedule` JOIN `dog` ON schedule.dog_id=dog.id WHERE `schedule.user_id`= :id;";
-        $statement = $db->prepare("SELECT * 
-            FROM shelter.schedule WHERE `user_id`= :id");
+
+
+        $sql = "SELECT shelter.schedule.*, dog.name FROM `schedule` JOIN `dog` ON schedule.dog_id=dog.id WHERE `user_id`= :id;";
+        $statement = $db->prepare($sql);
         $statement->bindParam(":id", $id, PDO::PARAM_INT);
         $statement->execute();
 
         $res = $statement->fetchAll();
+
+        // die(var_dump($res));
 
         if ($res != null) {
             // echo "<pre>";

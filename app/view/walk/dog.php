@@ -75,9 +75,6 @@
     </nav>
 
     <div class="w3-content" style="max-width:1100px">
-      <hr>
-      <p>doggeos pictures comming soon</p>
-      
       <div class="form">
       <div class="thumbnail" id="dogs"><img src="<?= $dog["picture"] ?>"/></div>
         <p>
@@ -92,7 +89,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="w3-center navbar-dark bg-dark w3-padding-32">
+    <footer class="w3-center navbar-dark bg-dark w3-padding-32 fixed-bottom">
        <p>All rights reserved.</p>
     </footer>
 

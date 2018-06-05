@@ -93,7 +93,7 @@
   </div>
 
     <!-- Footer -->
-    <footer class="w3-center navbar-dark bg-dark w3-padding-32">
+    <footer class="w3-center navbar-dark bg-dark w3-padding-32 fixed-bottom">
        <p>All rights reserved.</p>
     </footer>
 
